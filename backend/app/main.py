@@ -9,7 +9,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routers import pins
+from .routers import pins, search
 from .database import init_db
 
 
@@ -47,6 +47,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(pins.router)
+app.include_router(search.router)
 
 
 @app.get("/")
